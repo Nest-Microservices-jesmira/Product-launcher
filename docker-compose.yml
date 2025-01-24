@@ -19,15 +19,15 @@ services:
       - PORT=3000
       - NATS_SERVERS=nats://nats-server:4222
 
-  # products-ms:
-  #   build:  ./products-ms
-  #   volumes:
-  #     - ./products-ms/src:/usr/src/app/src
-  #   command: npm run start:dev
-  #   environment:
-  #     - PORT=3001
-  #     - NATS_SERVERS=nats://nats-server:4222
-  #     - DATABASE_URL=file:./dev.db
+  products-ms:
+    build:  ./products-ms
+    volumes:
+      - ./products-ms/src:/usr/src/app/src
+    command: npm run start:dev
+    environment:
+      - PORT=3001
+      - NATS_SERVERS=nats://nats-server:4222
+      - DATABASE_URL=file:./dev.db
 
   # orders-ms:
   #   depends_on:
