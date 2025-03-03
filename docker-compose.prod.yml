@@ -11,7 +11,7 @@ services:
     build:
       context: ./client-gateway
       dockerfile: dockerfile.prod
-    image: client-gateway-prod
+    image: europe-southwest1-docker.pkg.dev/tienda-microservices-452308/image-registry/client-gateway
     ports:
       - ${CLIENT_GATEWAY_PORT}:${CLIENT_GATEWAY_PORT}
     environment:
@@ -22,7 +22,7 @@ services:
     build:
       context: ./products-ms
       dockerfile: dockerfile.prod
-    image: products-ms-prod
+    image: europe-southwest1-docker.pkg.dev/tienda-microservices-452308/image-registry/products-ms
     environment:
       - PORT=3000
       - NATS_SERVERS=nats://nats-server:4222
@@ -34,7 +34,7 @@ services:
       dockerfile: dockerfile.prod
       args:
         - ORDERS_DATABASE_URL=${ORDERS_DATABASE_URL}
-    image: orders-ms-prod
+    image: europe-southwest1-docker.pkg.dev/tienda-microservices-452308/image-registry/orders-ms
     environment:
       - PORT=3000
       - DATABASE_URL=${ORDERS_DATABASE_URL}
@@ -64,7 +64,7 @@ services:
     build:
       context: ./payment-ms
       dockerfile: dockerfile.prod
-    image: payment-ms-prod
+    image: europe-southwest1-docker.pkg.dev/tienda-microservices-452308/image-registry/payment-ms
     ports:
       - "${PAYMENTS_MS_PORT}:${PAYMENTS_MS_PORT}"
     environment:
@@ -83,7 +83,7 @@ services:
       build:
         context: ./auth-ms
         dockerfile: dockerfile.prod
-      image: auth-ms-prod
+      image: europe-southwest1-docker.pkg.dev/tienda-microservices-452308/image-registry/auth-ms
       environment:
         - PORT=3000
         - NATS_SERVERS=nats://nats-server:4222
