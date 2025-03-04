@@ -47,3 +47,19 @@ Si se hace al revés, se perderán las referencias de los sub-módulos en el rep
 ```
 docker compose -f docker-compose.prod.yml build
 ```
+
+# Cloudbuild
+https://cloud.google.com
+Buscar "Cloud Build"
+Buscar "Artifact Registry"
+Buscar "Cloud Build Triggers"
+Buscar "Secret Manager"
+
+Si tenemos problemas con el secret manager y los permisos, podemos crear un secreto de tipo "Secret Manager" con nombre "orders_database_url" y valor "postgres://postgres:123456@localhost:5432/ordersdb"
+
+Y ejecutar en la terminal:
+```	
+gcloud projects add-iam-policy-binding PROYECTO_ID --member=serviceAccount:CUENTA_DE_SERVICIO --role=roles/secretmanager.secretAccessor
+```
+
+donde CUENTA_DE_SERVICIO es el ID de la cuenta de servicio de Google Cloud ejemplo: `000000000000-compute@developer.gserviceaccount.com` y PROYECTO_ID es el ID del secret `207454884487`
