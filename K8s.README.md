@@ -12,7 +12,8 @@
 * Eliminar pod: `kubectl delete pod <nombre>`
 * Revisar logs: `kubectl logs <nombre>`
 
-
+> ⚠️ **IMPORTANTE:** ⚠️ 
+> Si  tenemos problemas con que  no actualiza el pod, eliminamos el pod que sea antiguo ( miramos si la hora coincide con la de creación del pod)
 
 # Crear deployment:
 ```
